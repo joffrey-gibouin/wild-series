@@ -1,0 +1,11 @@
+$primary : #000000;
+$secondary : #FFE81F;
+$ternary : #FFFFFF;
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+img {
+  width: 300px;
+  height: auto;
+}
