@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie {{ categoryName.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="my-5">Série dans la catégorie {{ categoryName.name }}</h1>
+    {% for programs in programs %}
+    <div class="media">
+        <h2><a href="{{ path("program_show", {id: programs.id}) }}">N°{{ programs.id }} {{ programs.title }}</a></h2>
+        <p>{{ programs.summary }}</p>
+    </div>
+    {% else %}
+        <p>Aucune série trouvé pour le moment.</p>
+    {% endfor %}
+
+{% endblock %}
