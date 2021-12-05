@@ -7,10 +7,10 @@
     <p>liste des épisodes:</p>
 
         <ul class="list-group my-2">
-    {% for episode in episodes %}
+    {% for episode in episode %}
         <li class="text-decoration-none my-1">
-                Episode {{ episode.number }} : {{ episode.title }}
-            </li>
+            <a href="{{ path("program_episode_show", {program_id: program.id, season_id: season.id, episode_id: episode.id}) }}">Episode {{ episode.number }} : {{ episode.title }}</a>
+        </li>
     {% else %}
         Aucune série trouvée.
     {% endfor %}

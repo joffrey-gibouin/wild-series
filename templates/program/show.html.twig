@@ -12,7 +12,7 @@
         </div>
         <div>
             {% for season in season %}
-                <a class="border-0 list-group-item list-group-item-action" href="{{ path("program_season_show", {programId: program.id, seasonId: season.number}) }}">{{ season.description }}</a>
+                <a class="border-0 list-group-item list-group-item-action" href="{{ path("program_season_show", {program_id: program.id, season_id: season.id}) }}">{{ season.description }}</a>
              {% endfor %}
         </div>
     </div>
