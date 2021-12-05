@@ -5,10 +5,20 @@
 {% block body %}
     <h1>Toutes les catégories de la table category : </h1>
     {% for category in categories %}
-        <div>
-            <h2><a href="{{ path("category_show", {categoryName: category.name}) }}">{{ category.name }}</a></h2>
+        <div class="text-center">
+            <a href="{{ path("category_show", {categoryName: category.name}) }}">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text">{{ category.name }}</p>
+                    </div>
+                </div>
+            </a>
         </div>
+
     {% else %}
         Aucune série trouvée.
     {% endfor %}
+    <div>
+        <a href="new">ajoute une catégorie</a>
+    </div>
 {% endblock %}
