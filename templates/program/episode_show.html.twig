@@ -8,6 +8,6 @@
     <p>Episode {{ episode.number }} : {{ episode.title }}</p> <br>
     <p>{{ episode.synopsis }}</p>
 
-    <a class="p-2 text-decoration-none bg-light border rounded shadow-lg" href="{{ path("program_season_show", {program_id: program.id, season_id: season.id}) }}">Retourner sur la page: {{ season.description }}</a>
+    <a class="p-2 text-decoration-none bg-light border rounded shadow-lg" href="{{ path("program_season_show", {program_slug: program.slug, season_id: season.id}) }}">Retourner sur la page: {{ season.description }}</a>
 
 {% endblock %}
