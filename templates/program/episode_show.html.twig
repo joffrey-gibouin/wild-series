@@ -7,7 +7,21 @@
         <h2>{{ season.description }}</h2>
     <p>Episode {{ episode.number }} : {{ episode.title }}</p> <br>
     <p>{{ episode.synopsis }}</p>
+       <ul>
+        {% for comment in episode.comments %}
+            <li>
+                {{ comment.comment }}
+            </li>
+        {% endfor %}
+       </ul>
 
-    <a class="p-2 text-decoration-none bg-light border rounded shadow-lg" href="{{ path("program_season_show", {program_slug: program.slug, season_id: season.id}) }}">Retourner sur la page: {{ season.description }}</a>
+    {% if app.user %}
+        <div class="my-3">
+            <a href="{{ path('form_comment', {'slug':episode.slug}) }}">ajoute un commentaire ! </a>
+        </div>
+    {% endif %}
+        <div>
+            <a class="p-2 text-decoration-none bg-light border rounded shadow-lg m-2" href="{{ path("program_season_show", {program_slug: program.slug, season_id: season.id}) }}">Retourner sur la page: {{ season.description }}</a>
+        </div>
 
 {% endblock %}

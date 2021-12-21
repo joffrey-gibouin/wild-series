@@ -16,6 +16,14 @@
                     <a class="nav-link  text-secondary" href="/category/">Mes catégories</a>
                 </li>
             </ul>
+            <div class="text-secondary">
+                {% if app.user %}
+                    {{ app.user.email }}
+                    <a href="{{ path('app_logout') }}" class="text-secondary"> Se déconnecter</a>
+                {% else %}
+                    <a href="{{ path('login') }}" class="text-secondary"> Se connecter</a>
+                {% endif %}
+            </div>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
