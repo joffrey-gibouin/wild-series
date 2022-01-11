@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ episode.title }}{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for comment in episode.comments %}
+            <li>
+                {{ comment.comment }}
+            </li>
+        {% endfor %}
+    </ul>
+    {{ include('episode/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

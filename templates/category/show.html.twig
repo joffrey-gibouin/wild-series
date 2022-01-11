@@ -6,7 +6,7 @@
     <h1 class="my-5">Série dans la catégorie {{ categoryName.name }}</h1>
     {% for programs in programs %}
     <div class="media">
-        <h2><a href="{{ path("program_show", {id: programs.id}) }}">N°{{ programs.id }} {{ programs.title }}</a></h2>
+        <h2><a href="{{ path("program_show", {slug: programs.slug}) }}">N°{{ programs.id }} {{ programs.title }}</a></h2>
         <p>{{ programs.summary }}</p>
     </div>
     {% else %}

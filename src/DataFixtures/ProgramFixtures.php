@@ -22,6 +22,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program->setTitle('True Detective');
         $program->setSummary('Louisiane, 1995 : deux inspecteurs de la Louisiana State Police, Rust Cohle et Martin Hart, sont chargés de résoudre le meurtre d\'une jeune femme coiffée de bois de cerfs et tatouée de dessins sataniques. Dix-sept ans plus tard, alors qu\'ils ont quitté la police, ils sont contactés par deux autres inspecteurs quand un meurtre similaire est commis.');
         $program->setCategory($this->getReference('category_5'));
+        $program->setOwner(null);
         for ($i=0; $i < count(ActorFixture::ACTORS); $i++) {
             $program->addActor($this->getReference('actor_' . $i));
         }
@@ -33,6 +34,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program2->setTitle('Homeland');
         $program2->setSummary('Les histoires la folle Carry madison contre le reste du monde.');
         $program2->setCategory($this->getReference('category_5'));
+        $program->setOwner(null);
         for ($i=0; $i < count(ActorFixture::ACTORS); $i++) {
             $program2->addActor($this->getReference('actor_' . $i));
         }
@@ -44,6 +46,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program3->setTitle('Game of Thrones');
         $program3->setSummary('Dallas version Fantasy');
         $program3->setCategory($this->getReference('category_1'));
+        $program->setOwner(null);
         for ($i=0; $i < count(ActorFixture::ACTORS); $i++) {
             $program3->addActor($this->getReference('actor_' . $i));
         }
@@ -55,6 +58,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program4->setTitle('Westworld');
         $program4->setSummary('Des robots aux FarWest!');
         $program4->setCategory($this->getReference('category_0'));
+        $program->setOwner(null);
         for ($i=0; $i < count(ActorFixture::ACTORS); $i++) {
             $program4->addActor($this->getReference('actor_' . $i));
         }
@@ -66,6 +70,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program5->setTitle('How i meet your mother');
         $program5->setSummary('Friends en plus fun');
         $program5->setCategory($this->getReference('category_0'));
+        $program->setOwner(null);
         for ($i=0; $i < count(ActorFixture::ACTORS); $i++) {
             $program5->addActor($this->getReference('actor_' . $i));
         }
