@@ -16,6 +16,11 @@
              {% endfor %}
         </div>
     </div>
+    <div>
+        {% if is_granted("ROLE_USER") %}
+            <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+        {%endif%}
+    </div>
 
     <strong>Acteurs :</strong>
 <ul>
