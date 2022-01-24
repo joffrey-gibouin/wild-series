@@ -8,12 +8,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use DateTime;
 
 
 /**
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
  * @ORM\Entity(repositoryClass="App\Repository\ProgramRepository")
  * @UniqueEntity("title")
+ * @Vich\Uploadable()
  */
 class Program
 {
@@ -38,9 +42,28 @@ class Program
     private $summary;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="program_image", fileNameProperty="poster")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string|null
      */
     private $poster;
+
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     *
+     * @var \DateTimeInterface
+     */
+    private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="programs")
@@ -103,16 +126,32 @@ class Program
         return $this;
     }
 
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
     public function getPoster(): ?string
     {
         return $this->poster;
     }
 
-    public function setPoster(?string $poster): self
+    public function setPoster(?string $poster): void
     {
         $this->poster = $poster;
-
-        return $this;
     }
 
     public function getCategory(): ?Category
