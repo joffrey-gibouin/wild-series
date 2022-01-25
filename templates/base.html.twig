@@ -15,9 +15,21 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body {{ stimulus_controller('symfony/ux-swup/swup', {
+        containers: ['#swup', '#nav'],
+        animateHistoryBrowsing: true,
+        animationSelector: '[class*="transition-"]',
+        cache: true,
+        linkSelector: '...',
+
+        theme: 'slide',
+        debug: true,
+    }) }}>
+    <main id="swup">
         <header>{% include '_navbar.html.twig' %} </header>
         {% block body %}
         {% endblock %}
+    </main>
+
     </body>
 </html>
