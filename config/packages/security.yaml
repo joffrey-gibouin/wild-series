@@ -25,9 +25,9 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                # "login" is the name of the route created previously
-                login_path: login
-                check_path: login
+                # "security" is the name of the route created previously
+                login_path: security
+                check_path: security
                 enable_csrf: true
                 failure_path: login_failure_route_name
             logout:
