@@ -16,9 +16,11 @@
              {% endfor %}
         </div>
     </div>
-    <div class="m-2>
+    <div class="m-2">
         {% if is_granted("ROLE_USER") %}
-            <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+            <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">
+                <button class="btn btn-dark shadow-lg m-2">Éditer</button>
+            </a>
         {%endif%}
     </div>
 
