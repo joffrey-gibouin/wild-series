@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'starwars';
+  src: url("../fonts/STARWARS.ttf") format('truetype');
+}
+$primary : #000000;
+$secondary : #FFE81F;
+$ternary : #FFFFFF;
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  font-family: starwars, sans-serif, serif;
+  margin: 0 !important;
+}
+img {
+  width: 300px;
+  height: auto;
+}
+

@@ -22,11 +22,16 @@
         theme: 'fade',
         debug: true,
     }) }}>
-    <header id="nav">{% include 'component/_navbar.html.twig' %} </header>
+    <header id="nav">{% include 'component/_navbar.html.twig' %}</header>
     <main id="swup">
-        {% block body %}
-        {% endblock %}
+        <div class="container-fluid">
+            <div class="row justify-content-center text-center">
+                <div class="col-9 p-3">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </main>
-
     </body>
 </html>
