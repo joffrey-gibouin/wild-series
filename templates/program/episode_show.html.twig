@@ -21,7 +21,10 @@
         </div>
     {% endif %}
         <div>
-            <a class="p-2 text-decoration-none bg-light border rounded shadow-lg m-2" href="{{ path("program_season_show", {program_slug: program.slug, season_id: season.id}) }}">Retourner sur la page: {{ season.description }}</a>
+            <a class="p-2 text-decoration-none bg-light border rounded shadow-lg m-2"
+               href="{{ path("program_season_show", {program_slug: program.slug, season_id: season.id}) }}">
+                    Retourner sur la page: {{ season.description }}
+            </a>
         </div>
 
 {% endblock %}
