@@ -23,6 +23,13 @@
         debug: true,
     }) }}>
     <header id="nav">{% include 'component/_navbar.html.twig' %}</header>
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }} text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <main id="swup">
         <div class="container-fluid">
             <div class="row justify-content-center text-center">

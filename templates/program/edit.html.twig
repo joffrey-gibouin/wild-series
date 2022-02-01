@@ -7,14 +7,16 @@
 <div>
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-dark shadow-lg m-2">{{ button_label|default('Save') }}</button>
     {{ form_end(form) }}
 </div>
-    <a href="{{ path('program_index') }}">back to list</a>
+    <a href="{{ path('program_index') }}">
+        <button class="btn btn-secondary shadow-lg m-2 border-primary">Retourner à la liste</button>
+    </a>
 <div>
-    <form method="post" action="{{ path('program_edit', {'slug': program.slug}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <form method="post" action="{{ path('program_edit', {'slug': program.slug}) }}" onsubmit="return confirm('Est-tu sûr de vouloir supprimer cette série?');">
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ program.id) }}">
-        <button class="btn">Delete</button>
+        <button class="btn btn-danger shadow-lg m-2">supprimer</button>
     </form>
 </div>
 

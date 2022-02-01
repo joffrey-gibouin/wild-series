@@ -70,6 +70,7 @@ class ProgramController extends AbstractController
                 ->subject('Une nouvelle série vient d\'être publiée !')
                 ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
 
+            $this->addFlash('success', 'La série '. $program->getTitle() . ' a bien été ajouté');
             $mailer->send($email);
 
             return $this->redirectToRoute('program_index');
@@ -145,6 +146,7 @@ class ProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+            $this->addFlash('success', 'La série '. $program->getTitle() . ' a bien été modifié');
 
             return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
         }
